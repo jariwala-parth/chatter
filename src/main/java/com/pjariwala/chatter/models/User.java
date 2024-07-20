@@ -7,7 +7,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
-
 import lombok.Data;
 
 @Data
@@ -34,10 +33,8 @@ public class User {
   @Column(name = "status")
   private String status;
 
-
   @Column(name = "created_at")
   private LocalDateTime createdAt;
-
 
   @Column(name = "updated_at")
   private LocalDateTime updatedAt;
