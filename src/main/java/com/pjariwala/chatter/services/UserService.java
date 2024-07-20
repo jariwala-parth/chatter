@@ -1,10 +1,10 @@
 package com.pjariwala.chatter.services;
 
-import com.pjariwala.chatter.models.User;
+import com.pjariwala.chatter.models.Users;
 import java.util.List;
 
 public interface UserService {
-  List<User> findAll();
+  List<Users> findAll();
 
-  User saveUser(User user);
+  Users saveUser(Users user);
 }
