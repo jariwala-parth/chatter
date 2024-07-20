@@ -1,6 +1,6 @@
 package com.pjariwala.chatter.controllers;
 
-import com.pjariwala.chatter.models.Users;
+import com.pjariwala.chatter.models.User;
 import com.pjariwala.chatter.services.UserService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +19,12 @@ public class UserController {
   @Autowired UserService userService;
 
   @GetMapping("/findAll")
-  ResponseEntity<List<Users>> getUsers() {
+  ResponseEntity<List<User>> getUsers() {
     return ResponseEntity.ok(userService.findAll());
   }
 
   @PostMapping("/saveUser")
-  ResponseEntity<Users> saveUser(@RequestBody Users user) {
+  ResponseEntity<User> saveUser(@RequestBody User user) {
     return ResponseEntity.ok(userService.saveUser(user));
   }
 }
