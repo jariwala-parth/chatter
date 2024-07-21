@@ -1,6 +1,7 @@
 package com.pjariwala.chatter.exceptions;
 
 import lombok.Getter;
+import org.springframework.http.HttpStatus;
 
 public class BaseException extends RuntimeException {
   @Getter private String errorCode;
@@ -21,6 +22,11 @@ public class BaseException extends RuntimeException {
   public BaseException(String msg, String errCode) {
     super(msg);
     errorCode = errCode;
+  }
+
+  public BaseException(String msg, HttpStatus status) {
+    super(msg);
+    errorCode = String.valueOf(status.value());
   }
 
   public BaseException(String msg, String errCode, String parameter) {

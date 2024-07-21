@@ -1,5 +1,7 @@
 package com.pjariwala.chatter.models;
 
+import static java.time.ZoneOffset.UTC;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,37 +35,9 @@ public class User {
   @Column(name = "status")
   private String status;
 
-  @Column(name = "created_at")
+  @Column(name = "created_at", insertable = false, updatable = false)
   private LocalDateTime createdAt;
 
-  @Column(name = "updated_at")
-  private LocalDateTime updatedAt;
-
-  public LocalDateTime getCreatedAt() {
-    if (createdAt == null) {
-      createdAt = LocalDateTime.now();
-    }
-    return createdAt;
-  }
-
-  public LocalDateTime getUpdatedAt() {
-    if (updatedAt == null) {
-      updatedAt = LocalDateTime.now();
-    }
-    return updatedAt;
-  }
-
-  public void setCreatedAt(LocalDateTime createdAt) {
-    if (createdAt == null) {
-      createdAt = LocalDateTime.now();
-    }
-    this.createdAt = createdAt;
-  }
-
-  public void setUpdatedAt(LocalDateTime updatedAt) {
-    if (updatedAt == null) {
-      updatedAt = LocalDateTime.now();
-    }
-    this.updatedAt = updatedAt;
-  }
+  @Column(name = "updated_at", insertable = false, updatable = true)
+  private LocalDateTime updatedAt = LocalDateTime.now(UTC);
 }

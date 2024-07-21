@@ -1,10 +1,13 @@
 package com.pjariwala.chatter.services;
 
+import com.pjariwala.chatter.dtos.UserDto;
 import com.pjariwala.chatter.models.User;
 import java.util.List;
 
 public interface UserService {
-  List<User> findAll();
+  List<UserDto> findAll();
 
-  User saveUser(User user);
+  UserDto saveUser(User user);
+
+  UserDto updateUser(Long id, User user);
 }
